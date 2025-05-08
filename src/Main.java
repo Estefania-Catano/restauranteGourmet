@@ -2,7 +2,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        double cuenta=0, descuentoA=0, descuentoB=0, total=0, hora=0, recargo=0, descuentoC=0, invitados=0;
+        double cuenta=0, descuentoA=0, descuentoB=0, total=0, hora=0, recargo=0, invitados=0;
                 System.out.println("Menú de opciones");
         System.out.println("1. Almuerzo, 2. Cena, 3. Reserva de evento");
         String opcion = sc.nextLine();
@@ -38,19 +38,25 @@ public class Main {
                     recargo=cuenta*0.1;
                 }
                 if (cuenta>150000){
-                    descuentoC=cuenta*0.08;
+                    descuentoA=cuenta*0.08;
                 }
-                total=cuenta+recargo-descuentoC;
+                total=cuenta+recargo-descuentoA;
                 System.out.println("Selecionaste la opcion: "+opcion+". Cena");
                 System.out.println("El valor de la cuenta es: "+cuenta);
                 System.out.println("Tu hora de ingreso fue "+hora);
-                System.out.println("Por lo cual te genero un recargo de: "+recargo+" y e valor de compra te genero un descuento de: "+descuentoC);
+                System.out.println("Por lo cual te genero un recargo de: "+recargo+" y e valor de compra te genero un descuento de: "+descuentoA);
                 System.out.println("el valor total de tu cuenta es: "+total);
                 System.out.println("Gracias por tu compra");
                 break;
             case "3":
                 System.out.println("Ingrese la cantidad de invitados: ");
                 invitados = sc.nextDouble();
+                if (invitados>30){
+                    descuentoA=0.15;
+                } else if (invitados<=30) {
+                    descuentoA=0;
+                }
+                System.out.println("Su evento contara con "+invitados+" invitados, por lo cual le otorgaremos un descuento del "+descuentoA);
         }
 
     }

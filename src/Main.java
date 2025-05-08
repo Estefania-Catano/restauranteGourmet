@@ -1,19 +1,27 @@
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
-        String opcion="";
-        String dia=""
-        System.out.println("Menú de opciones");
-        System.out.println("1. Almuerzo, 2. Cena, 3. Reserver evento");
-        System.out.println("Escoga entre las opciones");
+        Scanner sc = new Scanner(System.in);
+        double cuenta=0, descuentoA=0, descuentoB=0, total=0;
+                System.out.println("Menú de opciones");
+        System.out.println("1. Almuerzo, 2. Cena, 3. Reserva de evento");
+        String opcion = sc.nextLine();
+
         switch (opcion){
             case "1":
-                System.out.println("Escoja un día de la semana");
-                System.out.println("L-Lunes, M-Martes, Mi-Miercoles, J-Jueves, V-Viernes, S-Sabado, D-Domingo");
-                switch (dia){
-                    case "L":
-                        System.out.println("Ingrese el valor de la cuenta");
+            System.out.println("Ingrese el día de la semana");
+                System.out.println("L-Lunes, M-Martes, Mi-Miércoles, J-Jueves, V-Viernes, S-Sábado, D-Domingo");
+                String dia = sc.nextLine();
+                System.out.println("Ingrese el valor de la cuenta");
+                cuenta= sc.nextDouble();
+                if (dia.equals("L") || dia.equals("Mi") || dia.equals("V")){
+                    descuentoA =0.1;
                 }
+                if (cuenta > 100000){
+                    descuentoB = 0.05;
+                }
+                total=cuenta*(1-(descuentoA+descuentoB));
+
         }
     }
 }

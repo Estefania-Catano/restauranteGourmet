@@ -53,10 +53,11 @@ public class Main {
                 invitados = sc.nextDouble();
                 if (invitados>30){
                     descuentoA=0.15;
-                } else if (invitados<=30) {
+                } else if (invitados<30) {
                     descuentoA=0;
                 }
                 System.out.println("Su evento contara con "+invitados+" invitados, por lo cual le otorgaremos un descuento del "+descuentoA);
+                System.out.println("Gracias por tu reserva");
         }
 
     }
